@@ -4,10 +4,10 @@
     <data>
         <variable
             name="viewModel"
-            type="io.github.bbang208.cleanarchitecture.MainViewModel" />
+            type="io.github.bbang208.cosmopolitan.MainViewModel" />
         <variable
             name="item"
-            type="io.github.bbang208.cleanarchitecture.data.models.Repo" />
+            type="io.github.bbang208.cosmopolitan.data.models.Repo" />
     </data>
 
     <LinearLayout
