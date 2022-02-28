@@ -6,11 +6,11 @@ import io.github.bbang208.cosmopolitan.data.ApiSuccessResponse
 import io.github.bbang208.cosmopolitan.data.NetworkBoundResource
 import io.github.bbang208.cosmopolitan.data.Resource
 import io.github.bbang208.cosmopolitan.data.models.DateModel
-import io.github.bbang208.cosmopolitan.data.source.remote.TestApiService
+import io.github.bbang208.cosmopolitan.data.source.remote.AppApiService
 import javax.inject.Inject
 
-class TestRepository @Inject constructor(
-    private val testApiService: TestApiService
+class ApiRepository @Inject constructor(
+    private val appApiService: AppApiService
 ) {
 
     fun getTime(): LiveData<Resource<DateModel>> {
@@ -20,7 +20,7 @@ class TestRepository @Inject constructor(
             }
 
             override suspend fun createCall(): LiveData<ApiResponse<DateModel>> {
-                return testApiService.getTime()
+                return appApiService.getTime()
             }
 
         }.asLiveData()

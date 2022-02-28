@@ -13,27 +13,112 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/secondaryAccentColor"
         tools:context=".MainActivity">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            submitList="@{viewModel.testList}"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/plusButton"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
-            android:onClick="@{() -> viewModel.addData()}"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/popular_drinks"
+            android:textColor="@color/secondaryColor"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView"
+            android:layout_width="140dp"
+            android:layout_height="220dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/accentColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Mojito"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/popular_ingredients"
+            android:textColor="@color/secondaryColor"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:columnCount="2"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:minHeight="180dp"
+                app:cardBackgroundColor="@color/accentColor" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:minHeight="180dp"
+                app:cardBackgroundColor="@color/accentColor" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:minHeight="180dp"
+                app:cardBackgroundColor="@color/accentColor" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                android:minHeight="180dp"
+                app:cardBackgroundColor="@color/accentColor" />
+        </GridLayout>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Search More Drinks"
+            app:icon="@drawable/ic_search"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:contentDescription="@string/add_button" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -25,16 +25,6 @@ class MainActivity : AppCompatActivity() {
         viewBinding.lifecycleOwner = this
         viewBinding.viewModel = this.viewModel
 
-        val adapter = TestAdapter(appExecutors, this.viewModel)
-        viewBinding.recyclerView.adapter = adapter
-
-
-        viewModel.test.observe(this) { res ->
-            Timber.e("status: ${res.status}")
-            Timber.e("data: ${res.data?.time}")
-            Timber.e("errorMessage: ${res.message}")
-        }
-
         PushEvent.getInstance().observe(this) {
             Timber.e("event: $it")
         }

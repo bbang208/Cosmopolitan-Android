@@ -6,7 +6,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.github.bbang208.cosmopolitan.BuildConfig
-import io.github.bbang208.cosmopolitan.data.source.remote.TestApiService
+import io.github.bbang208.cosmopolitan.data.source.remote.AppApiService
 import io.github.bbang208.cosmopolitan.util.LiveDataCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -53,13 +53,13 @@ object NetworkModule {
             .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(LiveDataCallAdapterFactory())
-            .baseUrl("http://time.jsontest.com")
+            .baseUrl("https://www.thecocktaildb.com")
             .client(client)
             .build()
     }
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit): TestApiService =
-        retrofit.create(TestApiService::class.java)
+    fun provideApiService(retrofit: Retrofit): AppApiService =
+        retrofit.create(AppApiService::class.java)
 }
