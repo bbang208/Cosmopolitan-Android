@@ -8,6 +8,10 @@
         <variable
             name="viewModel"
             type="io.github.bbang208.cosmopolitan.MainViewModel" />
+
+        <import type="android.view.View" />
+
+        <import type="io.github.bbang208.cosmopolitan.data.Status" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -119,6 +123,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.popularDrinks.status == Status.LOADING ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/popularDrinksRecyclerView"
+            app:layout_constraintEnd_toEndOf="@+id/popularDrinksRecyclerView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/popularDrinksRecyclerView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
