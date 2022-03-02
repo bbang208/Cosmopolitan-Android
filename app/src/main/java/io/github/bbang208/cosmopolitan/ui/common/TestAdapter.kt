@@ -7,36 +7,42 @@ import androidx.recyclerview.widget.DiffUtil
 import io.github.bbang208.cosmopolitan.AppExecutors
 import io.github.bbang208.cosmopolitan.MainViewModel
 import io.github.bbang208.cosmopolitan.R
-import io.github.bbang208.cosmopolitan.data.models.Repo
-import io.github.bbang208.cosmopolitan.databinding.ItemRepoBinding
+import io.github.bbang208.cosmopolitan.data.models.PopularDrinks
+import io.github.bbang208.cosmopolitan.databinding.ItemPopularBinding
 
 class TestAdapter(
     appExecutors: AppExecutors,
     private val viewModel: MainViewModel
-) : DataBoundListAdapter<Repo, ItemRepoBinding>(
+) : DataBoundListAdapter<PopularDrinks.Drink, ItemPopularBinding>(
     appExecutors = appExecutors,
-    diffCallback = object : DiffUtil.ItemCallback<Repo>() {
-        override fun areItemsTheSame(oldItem: Repo, newItem: Repo): Boolean {
-            return oldItem.description == newItem.description
-                    && oldItem.description == newItem.description
+    diffCallback = object : DiffUtil.ItemCallback<PopularDrinks.Drink>() {
+        override fun areItemsTheSame(
+            oldItem: PopularDrinks.Drink,
+            newItem: PopularDrinks.Drink
+        ): Boolean {
+            return oldItem.idDrink == newItem.idDrink
+                    && oldItem.idDrink == newItem.idDrink
         }
 
-        override fun areContentsTheSame(oldItem: Repo, newItem: Repo): Boolean {
-            return oldItem.description == newItem.description
-                    && oldItem.description == newItem.description
+        override fun areContentsTheSame(
+            oldItem: PopularDrinks.Drink,
+            newItem: PopularDrinks.Drink
+        ): Boolean {
+            return oldItem.idDrink == newItem.idDrink
+                    && oldItem.idDrink == newItem.idDrink
         }
     }
 ) {
-    override fun createBinding(parent: ViewGroup): ItemRepoBinding {
+    override fun createBinding(parent: ViewGroup): ItemPopularBinding {
         return DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.item_repo,
+            R.layout.item_popular,
             parent,
             false
         )
     }
 
-    override fun bind(binding: ItemRepoBinding, item: Repo) {
+    override fun bind(binding: ItemPopularBinding, item: PopularDrinks.Drink) {
         binding.item = item
         binding.viewModel = viewModel
     }
