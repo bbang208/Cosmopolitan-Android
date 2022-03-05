@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/font/custom_font.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/acivity_search.xml" value="0.2115036231884058" />
+        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.3764129859813745" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.29423880025643073" />
-        <entry key="app/src/main/res/layout/item_popular.xml" value="0.6205602010091146" />
+        <entry key="app/src/main/res/layout/item_popular.xml" value="0.374127705891927" />
         <entry key="app/src/main/res/layout/item_repo.xml" value="0.1125" />
       </map>
     </option>

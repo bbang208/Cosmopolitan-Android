@@ -1,13 +1,17 @@
 package io.github.bbang208.cosmopolitan
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import com.google.android.material.transition.MaterialContainerTransform
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.bbang208.cosmopolitan.data.Status
 import io.github.bbang208.cosmopolitan.databinding.ActivityMainBinding
 import io.github.bbang208.cosmopolitan.ui.common.TestAdapter
+import io.github.bbang208.cosmopolitan.util.EventObserver
 import io.github.bbang208.cosmopolitan.util.PushEvent
 import timber.log.Timber
 import javax.inject.Inject
@@ -29,16 +33,16 @@ class MainActivity : AppCompatActivity() {
         val adapter = TestAdapter(appExecutors, this.viewModel)
         viewBinding.popularDrinksRecyclerView.adapter = adapter
 
-        PushEvent.getInstance().observe(this) {
-            Timber.e("event: $it")
-        }
-
-        val listener = { data1: Int, data2: String ->
-        }
-
-        PushEvent.getInstance().requestUpdate("asdad", listener)
-        PushEvent.getInstance().requestUpdate("test", listener = { data1: Int, data2: String ->
+        viewModel.clickEvent.observe(this, EventObserver {
+            Toast.makeText(this, "name: ${it.strDrink} id: ${it.idDrink}", Toast.LENGTH_LONG).show()
+            val intent = DetailActivity.create(this, it.idDrink)
+            startActivity(intent)
         })
+
+        viewBinding.searchFloatingButton.setOnClickListener {
+            val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
 
         viewModel.popularDrinks.observe(this) { res ->
             when (res.status) {
