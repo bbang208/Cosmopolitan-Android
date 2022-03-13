@@ -22,8 +22,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".DetailActivity" />
+        <activity android:name=".ui.SearchActivity" />
+        <activity android:name=".ui.DetailActivity" />
     </application>
 
 </manifest>

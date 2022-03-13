@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="io.github.bbang208.cosmopolitan.DetailViewModel" />
+            type="io.github.bbang208.cosmopolitan.ui.DetailViewModel" />
 
         <variable
             name="item"

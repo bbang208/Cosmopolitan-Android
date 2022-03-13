@@ -1,4 +1,4 @@
-package io.github.bbang208.cosmopolitan
+package io.github.bbang208.cosmopolitan.ui
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

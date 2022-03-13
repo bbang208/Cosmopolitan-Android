@@ -1,4 +1,4 @@
-package io.github.bbang208.cosmopolitan
+package io.github.bbang208.cosmopolitan.ui
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import dagger.hilt.android.AndroidEntryPoint
+import io.github.bbang208.cosmopolitan.R
 import io.github.bbang208.cosmopolitan.databinding.ActivityDetailBinding
 
 @AndroidEntryPoint

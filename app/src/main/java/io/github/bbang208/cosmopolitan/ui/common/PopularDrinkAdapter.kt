@@ -10,7 +10,7 @@ import io.github.bbang208.cosmopolitan.R
 import io.github.bbang208.cosmopolitan.data.models.PopularDrinks
 import io.github.bbang208.cosmopolitan.databinding.ItemPopularBinding
 
-class TestAdapter(
+class PopularDrinkAdapter(
     appExecutors: AppExecutors,
     private val viewModel: MainViewModel
 ) : DataBoundListAdapter<PopularDrinks.Drink, ItemPopularBinding>(

@@ -6,13 +6,13 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
-import com.google.android.material.transition.MaterialContainerTransform
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.bbang208.cosmopolitan.data.Status
 import io.github.bbang208.cosmopolitan.databinding.ActivityMainBinding
-import io.github.bbang208.cosmopolitan.ui.common.TestAdapter
+import io.github.bbang208.cosmopolitan.ui.DetailActivity
+import io.github.bbang208.cosmopolitan.ui.SearchActivity
+import io.github.bbang208.cosmopolitan.ui.common.PopularDrinkAdapter
 import io.github.bbang208.cosmopolitan.util.EventObserver
-import io.github.bbang208.cosmopolitan.util.PushEvent
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         viewBinding.lifecycleOwner = this
         viewBinding.viewModel = this.viewModel
 
-        val adapter = TestAdapter(appExecutors, this.viewModel)
+        val adapter = PopularDrinkAdapter(appExecutors, this.viewModel)
         viewBinding.popularDrinksRecyclerView.adapter = adapter
 
         viewModel.clickEvent.observe(this, EventObserver {
